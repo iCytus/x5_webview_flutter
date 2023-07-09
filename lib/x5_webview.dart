@@ -49,6 +49,9 @@ class X5WebView extends StatefulWidget {
 }
 
 class _X5WebViewState extends State<X5WebView> {
+  final Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers = {
+    Factory(() => EagerGestureRecognizer())
+  };
   @override
   Widget build(BuildContext context) {
     if (defaultTargetPlatform == TargetPlatform.android) {
@@ -69,7 +72,7 @@ class _X5WebViewState extends State<X5WebView> {
         surfaceFactory: (_, controller) {
           return AndroidViewSurface(
             controller: controller as AndroidViewController,
-            gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
+            gestureRecognizers: gestureRecognizers,
             hitTestBehavior: PlatformViewHitTestBehavior.opaque,
           );
         },
