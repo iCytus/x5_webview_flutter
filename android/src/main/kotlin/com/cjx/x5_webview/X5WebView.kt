@@ -31,6 +31,7 @@ class X5WebView(private val context: Activity?, private val id: Int, private val
 //            settings.useWideViewPort = true
             settings.javaScriptEnabled = params["javaScriptEnabled"] as Boolean
             settings.domStorageEnabled = params["domStorageEnabled"] as Boolean
+            settingsExtension.setContentCacheEnable(true)
 //            settings.javaScriptCanOpenWindowsAutomatically = true
 //                settings.layoutAlgorithm=LayoutAlgorithm.SINGLE_COLUMN
 
